@@ -1,7 +1,14 @@
 import { describe, test, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import HelloWorld from './HelloWorld.vue'
 
-describe('example', () => {
-  test('a', () => {
-    expect(1).toBe(1)
+describe('HelloWorld', () => {
+  test('should be msg', () => {
+    const wrapper = mount(HelloWorld, {
+      props: {
+        msg: 'hello',
+      },
+    })
+    expect(wrapper.text()).toContain('hello')
   })
 })
